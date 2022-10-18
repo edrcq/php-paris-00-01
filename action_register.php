@@ -4,7 +4,9 @@ require_once __DIR__ .'/init/config.php';
 if (isset($_POST['username'])) {
    // $_SESSION['username'] = $_POST['username'];
    $prepsql = $db->prepare('SELECT * FROM users WHERE username = ?');
-   $prepsql->execute([$_POST['username']]);
+   $prepsql->execute(array(
+      $_POST['username']
+   ));
 
    $users = $prepsql->fetchAll();
 
@@ -21,6 +23,8 @@ if (isset($_POST['username'])) {
    $id = $db->lastInsertId();
 
    $_SESSION['registered'] = true;
+
+
 
 }
 
