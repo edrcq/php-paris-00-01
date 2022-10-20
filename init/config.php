@@ -11,6 +11,9 @@ $mysql_password = 'exopassword';
 // Require le fichier db et inclus la variable $db
 require_once __DIR__ . '/db.php';
 
+// used for relative href
+$folder_uri = dirname($_SERVER['REQUEST_URI']);
+
 // Test
 $config = [
     'key1' => 'value1'

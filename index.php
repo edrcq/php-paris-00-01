@@ -9,11 +9,12 @@ require __DIR__ . "/inc/head.inc.php";
     <?php require __DIR__ . "/inc/nav.inc.php"; ?>
 
     <div>
+        <h2><?php echo dirname($_SERVER['REQUEST_URI']); ?></h2>
         <h1><?= $pageTitle ?></h1>
         <h2>Les sessions</h2>
 
         <h3>Connectez-vous</h3>
-        <form action="action_login.php" method="POST">
+        <form action="actions/action_login.php" method="POST">
             Username : <input type="text" name="username" />
             <button type="submit">Se connecter</button>
         </form>

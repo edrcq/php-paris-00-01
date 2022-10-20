@@ -1,4 +1,9 @@
 <?php
+/**
+ * Cette action est une page blanche invisible pour l'utilisateur,
+ * il se fera automatiquement redirige vers la page sur laquelle il a envoye le formulaire
+ * 
+ */
 require_once __DIR__ .'/init/config.php';
 
 if (isset($_POST['username'])) {
@@ -10,9 +15,9 @@ if (isset($_POST['username'])) {
 
    $users = $prepsql->fetchAll();
 
-   // si utilisateur a ete trouver, redirect, ne pas continuer register
+   // si un utilisateur a ete trouve, redirect, ne pas continuer register
    if (count($users) > 0) {
-      header('Location: index.php');
+      header('Location: /test/index.php');
       die();
    }
 
@@ -23,9 +28,6 @@ if (isset($_POST['username'])) {
    $id = $db->lastInsertId();
 
    $_SESSION['registered'] = true;
-
-
-
 }
 
 header('Location: /test/index.php');
